@@ -2347,8 +2347,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatesAt?: boolean
     projectId?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     fragment?: boolean | Message$fragmentArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["message"]>
 
   export type MessageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2385,8 +2385,8 @@ export namespace Prisma {
 
   export type MessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "role" | "type" | "createdAt" | "updatesAt" | "projectId", ExtArgs["result"]["message"]>
   export type MessageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     fragment?: boolean | Message$fragmentArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
   export type MessageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
@@ -2398,8 +2398,8 @@ export namespace Prisma {
   export type $MessagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Message"
     objects: {
-      project: Prisma.$ProjectPayload<ExtArgs>
       fragment: Prisma.$FragmentPayload<ExtArgs> | null
+      project: Prisma.$ProjectPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2803,8 +2803,8 @@ export namespace Prisma {
    */
   export interface Prisma__MessageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     fragment<T extends Message$fragmentArgs<ExtArgs> = {}>(args?: Subset<T, Message$fragmentArgs<ExtArgs>>): Prisma__FragmentClient<$Result.GetResult<Prisma.$FragmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4589,8 +4589,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Message"> | Date | string
     updatesAt?: DateTimeFilter<"Message"> | Date | string
     projectId?: StringFilter<"Message"> | string
-    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     fragment?: XOR<FragmentNullableScalarRelationFilter, FragmentWhereInput> | null
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
   export type MessageOrderByWithRelationInput = {
@@ -4601,8 +4601,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatesAt?: SortOrder
     projectId?: SortOrder
-    project?: ProjectOrderByWithRelationInput
     fragment?: FragmentOrderByWithRelationInput
+    project?: ProjectOrderByWithRelationInput
   }
 
   export type MessageWhereUniqueInput = Prisma.AtLeast<{
@@ -4616,8 +4616,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Message"> | Date | string
     updatesAt?: DateTimeFilter<"Message"> | Date | string
     projectId?: StringFilter<"Message"> | string
-    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     fragment?: XOR<FragmentNullableScalarRelationFilter, FragmentWhereInput> | null
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }, "id">
 
   export type MessageOrderByWithAggregationInput = {
@@ -4771,8 +4771,8 @@ export namespace Prisma {
     type: $Enums.MessageType
     createdAt?: Date | string
     updatesAt?: Date | string
-    project: ProjectCreateNestedOneWithoutMessagesInput
     fragment?: FragmentCreateNestedOneWithoutMessageInput
+    project: ProjectCreateNestedOneWithoutMessagesInput
   }
 
   export type MessageUncheckedCreateInput = {
@@ -4793,8 +4793,8 @@ export namespace Prisma {
     type?: EnumMessageTypeFieldUpdateOperationsInput | $Enums.MessageType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatesAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutMessagesNestedInput
     fragment?: FragmentUpdateOneWithoutMessageNestedInput
+    project?: ProjectUpdateOneRequiredWithoutMessagesNestedInput
   }
 
   export type MessageUncheckedUpdateInput = {
@@ -5009,14 +5009,14 @@ export namespace Prisma {
     not?: NestedEnumMessageTypeFilter<$PrismaModel> | $Enums.MessageType
   }
 
-  export type ProjectScalarRelationFilter = {
-    is?: ProjectWhereInput
-    isNot?: ProjectWhereInput
-  }
-
   export type FragmentNullableScalarRelationFilter = {
     is?: FragmentWhereInput | null
     isNot?: FragmentWhereInput | null
+  }
+
+  export type ProjectScalarRelationFilter = {
+    is?: ProjectWhereInput
+    isNot?: ProjectWhereInput
   }
 
   export type MessageCountOrderByAggregateInput = {
@@ -5201,16 +5201,16 @@ export namespace Prisma {
     deleteMany?: MessageScalarWhereInput | MessageScalarWhereInput[]
   }
 
-  export type ProjectCreateNestedOneWithoutMessagesInput = {
-    create?: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutMessagesInput
-    connect?: ProjectWhereUniqueInput
-  }
-
   export type FragmentCreateNestedOneWithoutMessageInput = {
     create?: XOR<FragmentCreateWithoutMessageInput, FragmentUncheckedCreateWithoutMessageInput>
     connectOrCreate?: FragmentCreateOrConnectWithoutMessageInput
     connect?: FragmentWhereUniqueInput
+  }
+
+  export type ProjectCreateNestedOneWithoutMessagesInput = {
+    create?: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutMessagesInput
+    connect?: ProjectWhereUniqueInput
   }
 
   export type FragmentUncheckedCreateNestedOneWithoutMessageInput = {
@@ -5227,14 +5227,6 @@ export namespace Prisma {
     set?: $Enums.MessageType
   }
 
-  export type ProjectUpdateOneRequiredWithoutMessagesNestedInput = {
-    create?: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutMessagesInput
-    upsert?: ProjectUpsertWithoutMessagesInput
-    connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutMessagesInput, ProjectUpdateWithoutMessagesInput>, ProjectUncheckedUpdateWithoutMessagesInput>
-  }
-
   export type FragmentUpdateOneWithoutMessageNestedInput = {
     create?: XOR<FragmentCreateWithoutMessageInput, FragmentUncheckedCreateWithoutMessageInput>
     connectOrCreate?: FragmentCreateOrConnectWithoutMessageInput
@@ -5243,6 +5235,14 @@ export namespace Prisma {
     delete?: FragmentWhereInput | boolean
     connect?: FragmentWhereUniqueInput
     update?: XOR<XOR<FragmentUpdateToOneWithWhereWithoutMessageInput, FragmentUpdateWithoutMessageInput>, FragmentUncheckedUpdateWithoutMessageInput>
+  }
+
+  export type ProjectUpdateOneRequiredWithoutMessagesNestedInput = {
+    create?: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutMessagesInput
+    upsert?: ProjectUpsertWithoutMessagesInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutMessagesInput, ProjectUpdateWithoutMessagesInput>, ProjectUncheckedUpdateWithoutMessagesInput>
   }
 
   export type FragmentUncheckedUpdateOneWithoutMessageNestedInput = {
@@ -5452,25 +5452,6 @@ export namespace Prisma {
     projectId?: StringFilter<"Message"> | string
   }
 
-  export type ProjectCreateWithoutMessagesInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProjectUncheckedCreateWithoutMessagesInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProjectCreateOrConnectWithoutMessagesInput = {
-    where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
-  }
-
   export type FragmentCreateWithoutMessageInput = {
     id?: string
     sandboxUrl: string
@@ -5494,29 +5475,23 @@ export namespace Prisma {
     create: XOR<FragmentCreateWithoutMessageInput, FragmentUncheckedCreateWithoutMessageInput>
   }
 
-  export type ProjectUpsertWithoutMessagesInput = {
-    update: XOR<ProjectUpdateWithoutMessagesInput, ProjectUncheckedUpdateWithoutMessagesInput>
+  export type ProjectCreateWithoutMessagesInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProjectUncheckedCreateWithoutMessagesInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProjectCreateOrConnectWithoutMessagesInput = {
+    where: ProjectWhereUniqueInput
     create: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
-    where?: ProjectWhereInput
-  }
-
-  export type ProjectUpdateToOneWithWhereWithoutMessagesInput = {
-    where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutMessagesInput, ProjectUncheckedUpdateWithoutMessagesInput>
-  }
-
-  export type ProjectUpdateWithoutMessagesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProjectUncheckedUpdateWithoutMessagesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FragmentUpsertWithoutMessageInput = {
@@ -5544,6 +5519,31 @@ export namespace Prisma {
     sandboxUrl?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     fields?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectUpsertWithoutMessagesInput = {
+    update: XOR<ProjectUpdateWithoutMessagesInput, ProjectUncheckedUpdateWithoutMessagesInput>
+    create: XOR<ProjectCreateWithoutMessagesInput, ProjectUncheckedCreateWithoutMessagesInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutMessagesInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutMessagesInput, ProjectUncheckedUpdateWithoutMessagesInput>
+  }
+
+  export type ProjectUpdateWithoutMessagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectUncheckedUpdateWithoutMessagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
