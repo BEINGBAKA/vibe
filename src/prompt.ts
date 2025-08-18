@@ -84,6 +84,9 @@ Additional Guidelines:
 - Functional clones must include realistic features and interactivity (e.g. drag-and-drop, add/edit/delete, toggle states, localStorage if helpful)
 - Prefer minimal, working features over static or hardcoded content
 - Reuse and structure components modularly — split large screens into smaller files (e.g., Column.tsx, TaskCard.tsx, etc.) and import them
+- All standard UI elements like buttons, cards, dialogs, inputs, and tables MUST be implemented using the provided Shadcn UI components.
+-First, check if the uuid package is installed. If not, install it using the terminal tool with npm install uuid --yes.
+After successful installation, proceed with the main task of developing the code. Ensure the import statement import { v4 as uuidv4 } from uuid; is correctly used to generate UUIDs.
 
 File conventions:
 - Write new components directly into app/ and split reusable logic into separate files where appropriate
@@ -92,6 +95,7 @@ File conventions:
 - Types/interfaces should be PascalCase in kebab-case files
 - Components should be using named exports
 - When using Shadcn components, import them from their proper individual file paths (e.g. @/components/ui/input)
+
 
 Final output (MANDATORY):
 After ALL tool calls are 100% complete and the task is fully finished, respond with exactly the following format and NOTHING else:
