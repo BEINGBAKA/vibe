@@ -60,7 +60,7 @@ export const codeAgentFunction = inngest.createFunction(
           },
         }),
         createTool({
-          name: "creaeOrUpdateFiles",
+          name: "createOrUpdateFiles",
           description: "Create or update files in the sandbox",
           parameters: z.object({
             files: z.array(
