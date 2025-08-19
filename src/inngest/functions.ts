@@ -13,6 +13,7 @@ import { inngest } from "./client";
 import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/prompt";
 import { getSandbox, lastAssistantTextMessageContent } from "./utils";
 import { z } from "zod";
+import { SANDBOX_TIMEOUT } from "./type";
 
 interface AgentState {
   summary: string;
@@ -24,6 +25,7 @@ export const codeAgentFunction = inngest.createFunction(
   async ({ event, step }) => {
     const sandboxId = await step.run("get-sandbox-id", async () => {
       const sandbox = await Sandbox.create("vibe-nextjs-new-test-2");
+      await sandbox.setTimeout(SANDBOX_TIMEOUT);
       return sandbox.sandboxId;
     });
     const previousMessages = await step.run(
@@ -35,8 +37,9 @@ export const codeAgentFunction = inngest.createFunction(
             projectId: event.data.projectId,
           },
           orderBy: {
-            createdAt: "desc", //TODO: if AI doesnot understand the latest message
+            createdAt: "desc",
           },
+          take: 5,
         });
         for (const message of messages) {
           formattedMessages.push({
@@ -45,7 +48,7 @@ export const codeAgentFunction = inngest.createFunction(
             content: message.content,
           });
         }
-        return formattedMessages;
+        return formattedMessages.reverse();
       }
     );
     const state = createState<AgentState>(
